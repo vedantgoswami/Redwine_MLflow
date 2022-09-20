@@ -1,4 +1,4 @@
-create env
+Create Environment
 ```bash
 conda create -n wineq python=3.7 -y
 ```
