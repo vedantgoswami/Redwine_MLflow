@@ -15,13 +15,27 @@ pip install -r requirements.txt
 
 download the data from 
 https://www.kaggle.com/datasets/uciml/red-wine-quality-cortez-et-al-2009
-
+```bash
 git init
+```
 
+```bash
 dvc init
-
+```
+```bash
 dvc add data_given/winequality-red.csv
-
+```
+```bash
 git add .
-
+```
+``` bash
 git commit -m "first commit"
+```
+```bash
+git add . && git commit -m "update Readme.md"
+```
+```bash
+git remote add origin https://github.com/vedantgoswami/Redwine_MLflow.git
+git branch -M main
+git push origin main
+```
