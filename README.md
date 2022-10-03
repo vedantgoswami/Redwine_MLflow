@@ -39,3 +39,25 @@ git remote add origin https://github.com/vedantgoswami/Redwine_MLflow.git
 git branch -M main
 git push origin main
 ```
+tox command -
+```bash
+tox
+```
+for rebuilding -
+```bash
+tox -r
+```
+pytest command -
+```bash
+pytest -v 
+```
+
+setup commands -
+```bash
+pip install -e .
+```
+
+build your own package commands-
+```commandline
+python setup.py sdist bdist_wheel
+```
