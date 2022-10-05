@@ -62,18 +62,29 @@ def test_api_response_correct_range(data=input_data["correct_range"]):
     res = api_response(data)
     assert TARGET_range["min"]<=res["response"]<=TARGET_range["max"]
 
+def test_form_response_incorrect_range(data=input_data["incorrect_range"]):
+    with pytest.raises(prediction_service.prediction.NotInRange):
+        res = form_response(data)
+
+def test_api_response_incorrect_range(data=input_data["incorrect_range"]):
+    res = api_response(data)
+    assert res["response"] == prediction_service.prediction.NotInRange().message
+def test_api_response_incorrect_col(data=input_data["incorrect_col"]):
+    res = api_response(data)
+    assert res["response"] == prediction_service.prediction.NotInCols().message
+
 class NotInRange(Exception):
     def __init__(self,message="value not in range"):
         self.message = message
         super().__init__(self.message)
-def test_generic():
-    a=5
-    b=2
-    with pytest.raises(NotInRange):
-        if a not in range(10,20):
-            raise NotInRange
-
-def test_something():
-    a=2
-    b=2
-    assert True
+# def test_generic():
+#     a=5
+#     b=2
+#     with pytest.raises(NotInRange):
+#         if a not in range(10,20):
+#             raise NotInRange
+#
+# def test_something():
+#     a=2
+#     b=2
+#     assert True
